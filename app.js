@@ -1,5 +1,5 @@
 require ("dotenv").config()//importando dotenv
-const createError = require('http-errors');
+
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -9,7 +9,7 @@ const logger = require('morgan');
 const mongoose = require ("mongoose");
 const cors = require ("cors");
 //conectando con mongoose
-mongoose.connect(process.env.DB_PROD,{
+mongoose.connect(process.env.DB,{
   useNewUrlParser:true,
   useUnifiedTopology:true
 })
@@ -41,10 +41,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/user');
+const authRouter = require('./routes/auth')
 
 app.use('/api', indexRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/users/', usersRouter);
+
 
 
 
