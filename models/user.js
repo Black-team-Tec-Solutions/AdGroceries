@@ -1,15 +1,29 @@
+//import mongoose y destructurar
+
 const mongoose = require("mongoose")
 const {Schema, model} = mongoose;
 
-const movieSchema = new Schema({
-  title:{
-    type: String,
-    unique:[true, "This movie already exist"]
-  },
-  genre:String,
-  plot:String,
-  _cast: [{ type: Schema.Types.ObjectId, ref: "Celeb"}]
-}, {timestamps: true});
+const userSchema = new Schema({
+    name:{
+        type: String,
+        required:[true,"debes agregar un nombre"],
+        minlength:1,
+    },
+    email:{
+        type: String,
+        unique:[true,"ya existe este correo electronico"],
+        required:[true,"debes agregar un nombre"],
+    },
+    password:{
+        type: String,
+        required:[true,"debes agregar una contraseña"]
+    },
+    role:{
+        type:String,
+        default:"USER",
+    }
 
-const Movie = mongoose.model('Movie', movieSchema);
-module.exports = Movie;
+},{timestamps:true})
+
+                  //model("elnombrecomo exportamoselmodelo",estructura)
+module.exports = model("User",userSchema)

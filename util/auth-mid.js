@@ -15,7 +15,7 @@ exports.createJWT = (user) =>{
 
 exports.veryToken = (req,res,next) =>{
     //destructurar de req.cookies el token 
-    const {token} = re.cookies
+    const {token} = req.cookies
 
     jwt.verify(token,process.env.SECRET, (error,decoded)=>{
     
@@ -52,7 +52,7 @@ exports.veryToken = (req,res,next) =>{
 
     }
 
-    exports.clearRes = (data) =>{
+    exports.cleanRes = (data) =>{
          //destructuramos el objeto data y retornamos un nuevo objeto solo con los datos requeridos para nuestro "desarrollador = dev"
         const {password, __v, updateAt, ...cleanedData} = data
 
