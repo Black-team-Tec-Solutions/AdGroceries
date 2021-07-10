@@ -43,10 +43,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
 const authRouter = require('./routes/auth')
+const stockRouter = require('./routes/stock')
 
 app.use('/api', indexRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users/', usersRouter);
+app.use('/api/stock/', stockRouter);
 
 
 
