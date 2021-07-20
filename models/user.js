@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const {Schema, model} = mongoose;
 
 const userSchema = new Schema({
-    name:{
+    nombre:{
         type: String,
         required:[true,"debes agregar un nombre"],
         minlength:1,
