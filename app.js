@@ -27,7 +27,7 @@ const app = express();
 
 app.use(
   cors({
-      origin:["http:localhost:3001","https://www.paginaDeploy.com"], //DUDA que pagina usar?
+      origin:["http://localhost:3000","https://www.paginaDeploy.com"], 
       credentials:true
   })
 )
