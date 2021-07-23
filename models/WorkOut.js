@@ -5,10 +5,10 @@ const workoutSchema = new Schema({
     exercises:{
         type: [String],     
     },
-    typeExcercise:{
+    typeexcercise:{
         type:String,
         required: true,
-        enum: ["TREN SUPERIOR", "TREN INFERIOR"]
+        enum: ["TREN SUPERIOR", "TREN INFERIOR", "CARDIO HIT"]
     },
     name:{
         type:String

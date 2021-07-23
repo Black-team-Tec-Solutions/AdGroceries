@@ -7,7 +7,7 @@ const {cleanRes, createJWT} = require("../util/auth-mid")
 
 
 router.post("/signup", function(req,res,next){
-    const{email,nombre,password,confirmPassword} = req.body
+    const{email,nombre,password,confirmPassword,role} = req.body
     if(password != confirmPassword){
         return res.status(403).json({msj:"las contraseñas no coinciden"})
     }
@@ -15,6 +15,7 @@ router.post("/signup", function(req,res,next){
     bcrypt.hash(password,10)
     .then(hashedPass =>{
         const user ={
+            
             email,
             password:hashedPass,
             nombre
