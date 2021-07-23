@@ -9,6 +9,7 @@ const PORT = process.env.PORT;
 //importando mongoose y cors
 const mongoose = require ("mongoose");
 const cors = require ("cors");
+
 //conectando con mongoose
 mongoose.connect(process.env.DB,{
   useNewUrlParser:true,
@@ -28,7 +29,7 @@ const app = express();
 
 app.use(
   cors({
-      origin:["http://localhost:3000","https://www.paginaDeploy.com"], 
+      origin:["http://localhost:3000","https://yani666.herokuapp.com/"], 
       credentials:true
   })
 )
