@@ -20,7 +20,13 @@ const userSchema = new Schema({
     },
     role:{
         type:String,
+        enum:["USER","ADMIN"],
         default:"USER",
+    },
+    stage:{
+        type:Number,
+        default:0,
+
     }
 
 },{timestamps:true})
